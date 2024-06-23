@@ -93,16 +93,7 @@ func configureTLS(tlsConfig *tls.Config) {
 	if err != nil {
 		log.Fatalf("Failed to load server certificate and key: %v", err)
 	}
-	//fmt.Println(cert.Certificate)
-	//fileCA, err := os.Open(caFile)
-	//if err != nil {
-	//	log.Printf("Open minica err: %s", err)
-	//}
-	//defer fileCA.Close()
-	//rootCA, err := io.ReadAll(fileCA)
-	//if err != nil {
-	//	log.Printf("Create serv CA err: %s", err)
-	//}
+
 	caCert, err := os.ReadFile(caFile)
 	if err != nil {
 		log.Fatalf("Failed to read CA certificate: %v", err)

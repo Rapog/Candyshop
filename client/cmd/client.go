@@ -59,18 +59,10 @@ func main() {
 	}
 
 	client := operations.New(transport, strfmt.Default)
-	//fmt.Println("dick")
-	//var candyMap = map[string]int64{
-	//	"CE": 10, "AA": 15, "NT": 17, "DE": 21, "YR": 23,
-	//}
-	//_, exist := candyMap[*request.Order.CandyType]
-
-	//if exist && *request.Order.CandyCount*candyMap[*request.Order.CandyType] <= *request.Order.Money {
 	res, err := client.BuyCandy(&request)
 	if err != nil {
 		if strings.Contains(err.Error(), "Post ") {
-			log.Printf("Error requesting: %s", err)
-			return
+			log.Fatalf("Error requesting: %s", err)
 		}
 		var errReq reqError
 
@@ -85,7 +77,6 @@ func main() {
 	} else {
 		fmt.Printf("%s Your change is %d", res.Payload.Thanks, res.Payload.Change)
 	}
-	//}
 }
 
 type reqError struct {
