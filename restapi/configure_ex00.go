@@ -84,7 +84,6 @@ func configureAPI(api *operations.Ex00API) http.Handler {
 // The TLS configuration before HTTPS server starts.
 func configureTLS(tlsConfig *tls.Config) {
 	// Make all necessary changes to the TLS configuration here.
-	fmt.Println("dick")
 	certFile := "localhost/cert.pem"
 	keyFile := "localhost/key.pem"
 	caFile := "minica.pem"
